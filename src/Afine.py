@@ -118,7 +118,7 @@ class Afine(Optimizer):
                     target=sourceNormalized-(p.grad*(group['lr_scale']/(gradNorm+group['eps'])))
                     #targetNorm=self._norm(target)
                     targetNorm=(target.view(-1)*sourceNormalized.view(-1)).sum(dim=0,keepdim=False)
-                    targetNorm.clamp(min=0)
+                    targetNorm.clamp_(min=0)
                     
                     scale=(targetNorm+group['eps'])
                     scale[(~torch.isfinite(scale))|(scale<=0)]=1
