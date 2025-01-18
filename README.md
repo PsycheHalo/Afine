@@ -22,7 +22,7 @@ The training is more stable and reaches a more **elegant** optimal solution fast
 
 3.平移
 - 旋转和缩放对零向量无作用, 为使零初始化和模长较小的向量也能被训练, 需加入平移.
-- 此处的平移带有惯性,且平移量与梯度稳定程度有关.
+- 此处的平移带有惯性,与前两项合并产生的平移形成相互降噪。且平移量与梯度稳定程度有关.
 
 ## Demo程序
 demo程序在test.py文件中,直接运行即可得到此页面中Affine与RAdam的对比图.(依赖visdom)
